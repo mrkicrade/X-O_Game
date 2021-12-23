@@ -1,4 +1,5 @@
 let container = document.querySelector('.container');
+let result = document.querySelector('.result');
 
 createGrid();
 
@@ -33,15 +34,22 @@ function checkLines() {
     for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
         if (line[0].innerHTML == line[1].innerHTML && line[1].innerHTML == line[2].innerHTML && line[0].innerHTML !="" ) {
-            console.log('1');
+            // console.log('1');
             for (let i = 0; i < line.length; i++) {
                 line[i].style.background = 'red';
+                if (xo == 'X') {
+                    result.innerHTML = '<h1>Pobednik je igrac X</h1>';
+                } else {
+                    result.innerHTML = '<h1>Pobednik je igrac O</h1>';
+                }
             }
             for (let k = 0; k < box.length; k++) {
                 box[k].removeEventListener('click', dugme);
-            }
+            }   
             break;
-        } 
+        } else {
+            result.innerHTML = '<h1>Nema pobednika</h1>';
+        }
     }
 }
 
@@ -51,7 +59,7 @@ function createGrid(){
         text +='<div class="box"></div>';
         // text +='<div class="box"><i class="fab fa-adn"></i></div>';
     }
-    console.log(text);
+    // console.log(text);
     container.innerHTML = text;
 }
 
