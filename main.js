@@ -4,8 +4,7 @@ let winner = 0;
 
 createGrid();
 
-let box = document.querySelectorAll('.box'); // ovo je array
-
+let box = document.querySelectorAll('.box'); 
 let lines = [
     [box[0], box[1], box[2]],
     [box[3], box[4], box[5]],
